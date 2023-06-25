@@ -12,8 +12,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: SplashScreen(),
+    return MaterialApp(
+      home: const SplashScreen(),
+      theme: ThemeData(
+        useMaterial3: true,
+        fontFamily: 'Vazirmatn',
+      ),
       showSemanticsDebugger: false,
       debugShowCheckedModeBanner: false,
     );

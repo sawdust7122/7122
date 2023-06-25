@@ -1,3 +1,4 @@
+import 'package:coffee_management/features/home/screens/add_menu.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -32,7 +33,14 @@ class HomeScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsetsDirectional.only(end: 10),
                   child: IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext dialogContext) {
+                          return const AddMenu(); // استفاده از نمونه ایجاد شده از قبل
+                        },
+                      );
+                    },
                     icon: const Icon(Icons.add),
                   ),
                 ),
@@ -84,7 +92,7 @@ class HomeScreen extends StatelessWidget {
                   );
                 },
                 separatorBuilder: (BuildContext context, int index) =>
-                const Divider(),
+                    const Divider(),
               ),
               const SizedBox(height: 60),
             ],
@@ -92,6 +100,7 @@ class HomeScreen extends StatelessWidget {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {},
+          shape: const CircleBorder(),
           child: const Icon(Icons.add),
         ),
         bottomNavigationBar: Padding(

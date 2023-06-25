@@ -72,18 +72,80 @@ flutter:
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
-  # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
-  #
+  fonts:
+    - family: QuranTaha
+      fonts:
+        - asset: assets/fonts/QuranTaha.ttf
+    - family: Tehran2
+      fonts:
+        - asset: assets/fonts/segoepr.ttf
+    - family: Tehran3
+      fonts:
+        - asset: assets/fonts/MyriadArabicRegular.ttf
+    - family: Traffic
+      fonts:
+        - asset: assets/fonts/Traffic.ttf
+    - family: Yagut
+      fonts:
+        - asset: assets/fonts/Yagut.ttf
+    - family: Zar
+      fonts:
+        - asset: assets/fonts/Zar.ttf
+    - family: badr
+      fonts:
+        - asset: assets/fonts/badr.ttf
+    - family: Mitra
+      fonts:
+        - asset: assets/fonts/Mitra.ttf
+    - family: Nazanin
+      fonts:
+        - asset: assets/fonts/Nazanin.ttf
+    - family: Roya
+      fonts:
+        - asset: assets/fonts/Roya.ttf
+    - family: Sahel
+      fonts:
+        - asset: assets/fonts/Sahel-FD.ttf
+        - asset: assets/fonts/Sahel-Light-FD.ttf
+        - asset: assets/fonts/Sahel-SemiBold-FD.ttf
+        - asset: assets/fonts/Sahel-Black-FD.ttf
+        - asset: assets/fonts/Sahel-Bold-FD.ttf
+    - family: Samim
+      fonts:
+        - asset: assets/fonts/Samim-Bold-FD.ttf
+        - asset: assets/fonts/Samim-FD.ttf
+        - asset: assets/fonts/Samim-Medium-FD.ttf
+    - family: Shabnam
+      fonts:
+        - asset: assets/fonts/Shabnam-Bold-FD.ttf
+        - asset: assets/fonts/Shabnam-FD.ttf
+        - asset: assets/fonts/Shabnam-Light-FD.ttf
+        - asset: assets/fonts/Shabnam-Medium-FD.ttf
+        - asset: assets/fonts/Shabnam-Thin-FD.ttf
+    - family: Tanha
+      fonts:
+        - asset: assets/fonts/Tanha-FD.ttf
+    - family: Vazirmatn
+      fonts:
+        - asset: assets/fonts/Vazirmatn-UI-FD-Black.ttf
+        - asset: assets/fonts/Vazirmatn-UI-FD-Bold.ttf
+        - asset: assets/fonts/Vazirmatn-UI-FD-ExtraBold.ttf
+        - asset: assets/fonts/Vazirmatn-UI-FD-ExtraLight.ttf
+        - asset: assets/fonts/Vazirmatn-UI-FD-Light.ttf
+        - asset: assets/fonts/Vazirmatn-UI-FD-Medium.ttf
+        - asset: assets/fonts/Vazirmatn-UI-FD-Regular.ttf
+        - asset: assets/fonts/Vazirmatn-UI-FD-SemiBold.ttf
+        - asset: assets/fonts/Vazirmatn-UI-FD-Thin.ttf
+    - family: Gandom
+      fonts:
+        - asset: assets/fonts/Gandom-FD.ttf
+    - family: Nahid
+      fonts:
+        - asset: assets/fonts/Nahid-FD.ttf
+    - family: Parastoo
+      fonts:
+        - asset: assets/fonts/Parastoo-Print-Bold-FD.ttf
+        - asset: assets/fonts/Parastoo-Print-FD.ttf
+
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
