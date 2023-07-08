@@ -1,15 +1,13 @@
 import 'package:coffee_management/core/widgets/form_creator.dart';
-import 'package:coffee_management/features/home/screens/choose_product_ingredients.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class AddMenu extends StatelessWidget {
-  const AddMenu({Key? key}) : super(key: key);
+class ChooseProductIngredients extends StatelessWidget {
+  const ChooseProductIngredients({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController _titleController = TextEditingController();
-    TextEditingController _priceController = TextEditingController();
+    TextEditingController controller = TextEditingController();
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Dialog(
@@ -35,7 +33,7 @@ class AddMenu extends StatelessWidget {
                     ),
                   ),
                   child: const Text(
-                    'اضافه کردن منو',
+                    'مواد انبار',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
@@ -52,32 +50,20 @@ class AddMenu extends StatelessWidget {
                 ),
               ],
             ),
-            Padding(
-              padding: const EdgeInsets.all(12.0),
+            // body
+            Container(
+              padding: const EdgeInsets.all(12),
+              height: 150,
               child: Column(
                 children: [
                   FormCreator(
-                    textController: _titleController,
-                    labelText: 'عنوان محصول',
-                  ),
+                      textController: controller, labelText: 'قهوه'),
                   const SizedBox(height: 10),
                   FormCreator(
-                    textController: _priceController,
-                    labelText: 'قیمت',
-                  ),
+                      textController: controller, labelText: 'کیک'),
                   const SizedBox(height: 10),
-                  TextButton(
-                    onPressed: () {
-                      showDialog(
-                        barrierColor: Colors.transparent,
-                        context: context,
-                        builder: (BuildContext dialogContext) {
-                          return const ChooseProductIngredients();
-                        },
-                      );
-                    },
-                    child: const Text('+ مواد لازم'),
-                  ),
+                  FormCreator(
+                      textController: controller, labelText: 'آرد'),
                 ],
               ),
             ),

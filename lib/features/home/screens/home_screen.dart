@@ -1,5 +1,6 @@
 import 'package:coffee_management/features/home/screens/add_menu.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -14,7 +15,6 @@ class HomeScreen extends StatelessWidget {
       Product(name: 'لته', price: '5000'),
       Product(name: 'کیک', price: '11000'),
     ];
-
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
@@ -27,7 +27,7 @@ class HomeScreen extends StatelessWidget {
               centerTitle: true,
               leading: IconButton(
                 onPressed: () {},
-                icon: const Icon(Icons.delete),
+                icon: const Icon(Icons.clear),
               ),
               actions: [
                 Padding(
@@ -57,37 +57,75 @@ class HomeScreen extends StatelessWidget {
                 itemCount: products.length,
                 physics: const NeverScrollableScrollPhysics(),
                 itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 15),
-                    height: 50,
-                    // color: Colors.amber,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  return Slidable(
+                    // Specify a key if the Slidable is dismissible.
+                    key: const ValueKey(0),
+
+                    // The start action pane is the one at the left or the top side.
+                    startActionPane: ActionPane(
+                      // A motion is a widget used to control how the pane animates.
+                      motion: const ScrollMotion(),
+
+                      // All actions are defined in the children parameter.
                       children: [
-                        Text(products[index].name),
-                        Text(products[index].price),
-                        Row(
-                          children: [
-                            InkWell(
-                              onTap: () {},
-                              child: const Icon(
-                                Icons.add_circle,
-                                color: Colors.blue,
-                              ),
-                            ),
-                            const SizedBox(width: 5),
-                            Text(products[index].count.toString()),
-                            const SizedBox(width: 5),
-                            InkWell(
-                              onTap: () {},
-                              child: const Icon(
-                                Icons.remove_circle,
-                                color: Colors.red,
-                              ),
-                            ),
-                          ],
+                        // A SlidableAction can have an icon and/or a label.
+                        SlidableAction(
+                          onPressed: (_) {},
+                          backgroundColor: const Color(0xFFfffbfe),
+                          foregroundColor: Colors.black54,
+                          icon: const Icon(
+                            Icons.delete_rounded,
+                            color: Colors.black54,
+                          ),
+                          label: 'حذف',
+                        ),
+                        SlidableAction(
+                          onPressed: (_) {},
+                          backgroundColor: const Color(0xFFfffbfe),
+                          foregroundColor: Colors.black54,
+                          icon: const Icon(
+                            Icons.edit,
+                            color: Colors.black54,
+                          ),
+                          label: 'ویرایش',
                         ),
                       ],
+                    ),
+
+                    // The child of the Slidable is what the user sees when the
+                    // component is not dragged.
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 15),
+                      height: 50,
+                      // color: Colors.amber,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(products[index].name),
+                          Text(products[index].price),
+                          Row(
+                            children: [
+                              InkWell(
+                                onTap: () {},
+                                child: const Icon(
+                                  Icons.add_circle,
+                                  color: Colors.blue,
+                                ),
+                              ),
+                              const SizedBox(width: 5),
+                              Text(products[index].count.toString()),
+                              const SizedBox(width: 5),
+                              InkWell(
+                                onTap: () {},
+                                child: const Icon(
+                                  Icons.remove_circle,
+                                  color: Colors.red,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 },
@@ -98,11 +136,11 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          shape: const CircleBorder(),
-          child: const Icon(Icons.add),
-        ),
+        // floatingActionButton: FloatingActionButton(
+        //   onPressed: () {},
+        //   shape: const CircleBorder(),
+        //   child: const Icon(Icons.add),
+        // ),
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.fromLTRB(15, 0, 15, 15),
           child: Row(
