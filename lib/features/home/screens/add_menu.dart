@@ -3,13 +3,22 @@ import 'package:coffee_management/features/home/screens/choose_product_ingredien
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class AddMenu extends StatelessWidget {
+class AddMenu extends StatefulWidget {
   const AddMenu({Key? key}) : super(key: key);
 
   @override
+  State<AddMenu> createState() => _AddMenuState();
+}
+
+class _AddMenuState extends State<AddMenu> {
+  final TextEditingController _titleController = TextEditingController();
+  final TextEditingController _priceController = TextEditingController();
+
+  List<Tag> tags = [];
+  List<Widget> tagContainers = [];
+
+  @override
   Widget build(BuildContext context) {
-    TextEditingController _titleController = TextEditingController();
-    TextEditingController _priceController = TextEditingController();
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Dialog(
@@ -66,20 +75,29 @@ class AddMenu extends StatelessWidget {
                     labelText: 'قیمت',
                   ),
                   const SizedBox(height: 10),
-                  TextButton(
-                    onPressed: () {
-                      showDialog(
-                        barrierColor: Colors.transparent,
-                        context: context,
-                        builder: (BuildContext dialogContext) {
-                          return const ChooseProductIngredients();
-                        },
-                      );
-                    },
-                    child: const Text('+ مواد لازم'),
+                  Align(
+                    alignment: AlignmentDirectional.centerStart,
+                    child: TextButton(
+                      onPressed: () {
+                        showDialog(
+                          barrierColor: Colors.transparent,
+                          context: context,
+                          builder: (BuildContext dialogContext) {
+                            return const ChooseProductIngredients();
+                          },
+                        );
+                      },
+                      child: const Text('+ مواد لازم'),
+                    ),
                   ),
                 ],
               ),
+            ),
+            Wrap(
+              spacing: 8.0,
+              runSpacing: 8.0,
+              children: List.generate(
+                  tagContainers.length, (index) => tagContainers[index]),
             ),
             Expanded(child: Container()),
             Padding(
@@ -107,4 +125,46 @@ class AddMenu extends StatelessWidget {
       ),
     );
   }
+
+  Widget tagContainerModel(Tag tag) {
+    return GestureDetector(
+      onTap: () {},
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 6),
+        decoration: BoxDecoration(
+          color: Colors.lightBlue,
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              tag.text,
+              style: const TextStyle(
+                color: Colors.white,
+                fontFamily: 'Vazirmatn',
+                fontSize: 13,
+              ),
+            ),
+            const SizedBox(width: 4),
+            const Icon(
+              Icons.close,
+              color: Colors.white,
+              size: 16,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class Tag {
+  int id;
+  String text;
+
+  Tag({
+    required this.id,
+    required this.text,
+  });
 }
